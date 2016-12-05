@@ -44,7 +44,7 @@ router.get('/api/v1/cliente', (req, res, next) => {
       return res.status(500).json({success: false, data: err});
     }
     // SQL Query > Select Data
-    const query = client.query('SELECT * FROM cliente;');
+    const query = client.query('SELECT * FROM f_listar_cliente();');
     // Stream results back one row at a time
     query.on('row', (row) => {
       results.push(row);
