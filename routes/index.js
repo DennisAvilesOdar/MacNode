@@ -20,7 +20,7 @@ router.get('/api/v1/articulo', (req, res, next) => {
       return res.status(500).json({success: false, data: err});
     }
     // SQL Query > Select Data
-    const query = client.query('SELECT * FROM articulo;');
+    const query = client.query('SELECT * FROM articulo order by codigo_articulo asc;');
     // Stream results back one row at a time
     query.on('row', (row) => {
       results.push(row);
